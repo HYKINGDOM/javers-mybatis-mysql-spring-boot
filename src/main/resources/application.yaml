@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: javers-mybatis-mysql-spring-boot
+server:
+  port: 8899
+
+
+mybatis-flex:
+  global-config:
+    print-banner: false
+  mapper-locations:
+    - classpath*:/mapper/*.xml
+  configuration:
+    mapUnderscoreToCamelCase: true
+    safeRowBoundsEnabled: true
+  type-aliases-package: org.java.temporary.notepad.javers.domain
+  datasource:
+    talent_rw:
+      type: druid
+      url: jdbc:mysql://10.0.220.30:3306/talent_admin?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true&connectTimeout=1000&socketTimeout=30000
+      username: platform
+      password: Platform_1314
+      minIdle: 10
+      maxActive: 100
+      maxWait: 1000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 30000
+      validationQuery: select 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: false
+      maxPoolPreparedStatementPerConnectionSize: -1
+      filters: stat
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=20000
+      useGlobalDataSourceStat: true
+    talent_r:
+      type: druid
+      url: jdbc:mysql://10.0.220.30:3306/talent_admin?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true&connectTimeout=1000&socketTimeout=30000
+      username: platform
+      password: Platform_1314
+      max-active: 20
+      min-idle: 5
+      max-wait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 30000
+      validationQuery: select 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: false
+      maxPoolPreparedStatementPerConnectionSize: -1
+      filters: stat
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=20000
+      useGlobalDataSourceStat: true
