@@ -60,7 +60,7 @@ public class CreatorInfoController {
     /**
      * 修改达人信息
      */
-    @PutMapping
+    @PostMapping("/edit")
     public AjaxResult edit(@RequestBody CreatorInfo creatorInfo) {
         int i = creatorInfoService.updateCreatorInfo(creatorInfo);
         return success(i);
